@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppB Messaging Interface</title>
+    <link rel="stylesheet" href="/static/css/appb.css"> <!-- External CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h2>AppB Messaging Interface</h2>
+
+        <!-- Authentication Section -->
+        <section id="auth-section">
+            <h3>Register</h3>
+            <div class="input-group">
+                <input type="text" id="register-username" placeholder="Username">
+            </div>
+            <div class="input-group">
+                <input type="email" id="register-email" placeholder="Email">
+            </div>
+            <div class="input-group">
+                <input type="password" id="register-password" placeholder="Password">
+            </div>
+            <button onclick="register()">Register</button>
+            <p id="register-error" class="error"></p>
+
+            <h3>Login</h3>
+            <div class="input-group">
+                <input type="text" id="login-username" placeholder="Username">
+            </div>
+            <div class="input-group">
+                <input type="password" id="login-password" placeholder="Password">
+            </div>
+            <button onclick="login()">Login</button>
+            <p id="login-error" class="error"></p>
+        </section>
+
+        <!-- Messaging Section -->
+        <section id="message-section" style="display: none;">
+            <h3>Send a Message</h3>
+            <div class="input-group">
+                <input type="text" id="recipient" placeholder="Recipient Username">
+            </div>
+            <div class="input-group">
+                <textarea id="message-content" placeholder="Your Message"></textarea>
+            </div>
+            <button onclick="sendMessage()">Send Message</button>
+            <p id="message-error" class="error"></p>
+        </section>
+
+        <!-- Inbox Section -->
+        <section id="inbox-section" style="display: none;">
+            <h3>Your Inbox</h3>
+            <div id="inbox"></div>
+        </section>
+
+        <!-- Logout Button -->
+        <button id="logout-btn" class="logout-btn" style="display: none;" onclick="logout()">Logout</button>
+    </div>
+
+    <script src="/static/js/appb.js"></script> <!-- External JS file -->
+</body>
+</html>
