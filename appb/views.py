@@ -7,16 +7,21 @@ from django.shortcuts import render
 from .serializers import RegisterSerializer, LoginSerializer
 from django.contrib.auth.models import User
 from .models import Message
+import os
 from cryptography.fernet import Fernet
-import json
+from dotenv import load_dotenv
 
-# Generate an encryption key (store securely in env variables)
-key = Fernet.generate_key()
+# Load environment variables
+load_dotenv()
+
+# Load the shared encryption key from the environment
+key = os.getenv('ENCRYPTION_KEY')
 cipher_suite = Fernet(key)
 
 def messaging_interface(request):
     # Render your messaging interface template
     return render(request, 'appb/messaging_interface.html')
+
 def home(request):
     return render(request, 'appb/messaging_interface.html')
 

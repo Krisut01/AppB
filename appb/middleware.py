@@ -1,9 +1,13 @@
-from cryptography.fernet import Fernet
-from django.http import JsonResponse
 import json
+import os
+from cryptography.fernet import Fernet
+from dotenv import load_dotenv
 
-# Generate an encryption key (store securely in env variables)
-key = Fernet.generate_key()
+# Load the environment variables from the .env file
+load_dotenv()
+
+# Get the encryption key from the environment variable
+key = os.getenv('ENCRYPTION_KEY')
 cipher_suite = Fernet(key)
 
 class EncryptionMiddleware:
